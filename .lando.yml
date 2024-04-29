@@ -1,0 +1,4 @@
+name: playground10
+recipe: drupal10
+config:
+  webroot: web
