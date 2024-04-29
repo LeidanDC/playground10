@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Test module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function playground_theme($existing, $type, $theme, $path) {
+  return [
+    'pg_banner' => [
+      'variables' => [
+        'image' => NULL,
+      ],
+    ],
+  ];
+}

@@ -1,0 +1,5 @@
+name: Playground
+type: module
+description: Module for interview
+package: playground
+core_version_requirement: ^9 || ^10

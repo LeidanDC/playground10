@@ -1,0 +1,20 @@
+uuid: df92b243-0385-4239-8a1d-f095df3657c8
+langcode: en
+status: true
+dependencies:
+  module:
+    - playground
+  theme:
+    - olivero
+id: olivero_banner
+theme: olivero
+region: hero
+weight: 0
+provider: null
+plugin: playground_banner
+settings:
+  id: playground_banner
+  label: Banner
+  label_display: '0'
+  provider: playground
+visibility: {  }
