@@ -17,3 +17,47 @@ function playground_theme($existing, $type, $theme, $path) {
     ],
   ];
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function playground_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $validatedForms = [
+    'node_product_edit_form',
+    'node_product_form'
+  ];
+
+  // Add validation
+  if (in_array($form_id, $validatedForms)) {
+    $form['#validate'][] = "playground_validate_product";
+  }
+}
+
+/**
+ * Custom form validation.
+ */
+function playground_validate_product($form, &$form_state) {
+  $products = playground_product_day();
+
+  if (count($products) >= 5 && $form_state->getValue('field_product_day')['value']) {
+    $message = '';
+    foreach($products as $id) {
+      $message .= "<a href='/node/{$id}/edit'>node ID: {$id}</a><br>";
+    }
+    $form_state->setErrorByName('field_product_day', t('There are already 5 product of the day enabled.<br>' . $message));
+  }
+}
+
+/**
+ * Get the array of all of product of the day
+ */
+function playground_product_day() {
+  $query = \Drupal::entityQuery('node')
+    ->condition('status', 1)
+    ->condition('type', 'product')
+    ->condition('field_product_day', 1)
+    ->accessCheck(FALSE);
+  $nids = $query->execute();
+
+  return $nids; 
+}
