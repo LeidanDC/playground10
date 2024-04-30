@@ -4,3 +4,10 @@ playground.product.admin:
   parent: system.admin_config_development
   route_name: view.product.product_admin
   weight: 100
+
+playground.product.admin.settings:
+  title: 'Product Settings'
+  description: 'Custom settings page for product'
+  parent: system.admin_config_development
+  route_name: playground.product.settings
+  weight: 100

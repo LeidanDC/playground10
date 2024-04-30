@@ -4,3 +4,11 @@ playground.api.product.cta:
     _controller: '\Drupal\playground\Controller\ProductController::cta'
   requirements:
     _permission: 'access content'
+
+playground.product.settings:
+  path: '/admin/config/product/settings'
+  defaults:
+    _form: '\Drupal\playground\Form\ProductSettingsForm'
+    _title: 'Product Settings Form'
+  requirements:
+    _permission: 'access content'

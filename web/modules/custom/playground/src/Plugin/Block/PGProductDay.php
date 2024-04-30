@@ -47,6 +47,7 @@ class PGProductDay extends BlockBase implements ContainerFactoryPluginInterface 
    */
   public function build() {
     $nids = playground_product_day();
+    $config = \Drupal::config('playground.product_settings');
     $node = FALSE;
     $image_url = FALSE;
     if (count($nids) > 0) {
@@ -63,7 +64,7 @@ class PGProductDay extends BlockBase implements ContainerFactoryPluginInterface 
 
     return [
       '#theme' => 'pg_product_day',
-      '#title' => 'Product of the Day!',
+      '#title' => $config->get('block_title') ?? 'Product of the Day!',
       '#node' => $node,
       '#image' => $image_url
     ];
