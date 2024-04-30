@@ -1,0 +1,6 @@
+playground.product.admin:
+  title: 'Product Admin page'
+  description: 'Custom admin page for product'
+  parent: system.admin_config_development
+  route_name: view.product.product_admin
+  weight: 100

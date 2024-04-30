@@ -1,0 +1,21 @@
+uuid: 7b973dc4-6fbd-498b-8cb5-e53a223d57fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product_day
+    - node.type.product
+id: node.product.field_product_day
+field_name: field_product_day
+entity_type: node
+bundle: product
+label: 'Add to product of the day'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
