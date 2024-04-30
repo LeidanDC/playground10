@@ -1,0 +1,6 @@
+playground.api.product.cta:
+  path: '/api/product/cta'
+  defaults:
+    _controller: '\Drupal\playground\Controller\ProductController::cta'
+  requirements:
+    _permission: 'access content'

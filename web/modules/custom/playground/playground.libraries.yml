@@ -1,0 +1,6 @@
+product-cta:
+  version: 1.x
+  js:
+    js/ProductCTA.js: {}
+  dependencies:
+    - core/jquery

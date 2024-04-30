@@ -1,0 +1,85 @@
+<?php
+
+use Drupal\Core\Database\Database;
+
+/**
+ * Implements hook_schema() to define database table schema.
+ */
+function playground_schema() {
+  $schema['product_cta'] = [
+    'description' => 'For product cta.',
+    'fields' => [
+      'id' => [
+        'description' => 'The primary identifier for a record.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'nid' => [
+        'description' => 'Product Node ID',
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+      'email' => [
+        'description' => 'User email',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'clicked' => [
+        'description' => 'The Unix timestamp when the cta was clicked.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function playground_uninstall() {
+  Database::getConnection()->schema()->dropTable('product_cta');
+}
+
+/**
+ * Adds product_cta to the database.
+ */
+function playground_update_10001() {
+  $table = [
+    'description' => 'For product cta.',
+    'fields' => [
+      'id' => [
+        'description' => 'The primary identifier for a record.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'nid' => [
+        'description' => 'Product Node ID',
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+      'email' => [
+        'description' => 'User email',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'clicked' => [
+        'description' => 'The Unix timestamp when the cta was clicked.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+  
+  $schema = \Drupal\Core\Database\Database::getConnection()->schema();
+  $schema->createTable('product_cta', $table);
+}

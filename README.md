@@ -10,4 +10,4 @@ Run: lando start
 
 You can use my database
 
-Run: lando drush sql-cli < d10.sql after unpacking
+Run: lando drush sql-cli < d10v2.sql after unpacking
