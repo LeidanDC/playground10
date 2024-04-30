@@ -1,0 +1,25 @@
+uuid: 866bf8cb-a620-49f8-bd91-90e1287de24c
+langcode: en
+status: true
+dependencies:
+  module:
+    - playground
+    - system
+  theme:
+    - olivero
+id: olivero_productoftheday
+theme: olivero
+region: content
+weight: -8
+provider: null
+plugin: playground_product_day
+settings:
+  id: playground_product_day
+  label: 'Product of the day'
+  label_display: '0'
+  provider: playground
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

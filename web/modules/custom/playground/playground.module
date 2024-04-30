@@ -15,6 +15,13 @@ function playground_theme($existing, $type, $theme, $path) {
         'image' => NULL,
       ],
     ],
+    'pg_product_day' => [
+      'variables' => [
+        'title' => NULL,
+        'node' => NULL,
+        'image' => NULL,
+      ],
+    ],
   ];
 }
 
@@ -38,8 +45,8 @@ function playground_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $for
  */
 function playground_validate_product($form, &$form_state) {
   $products = playground_product_day();
-
-  if (count($products) >= 5 && $form_state->getValue('field_product_day')['value']) {
+  $node = $form_state->getFormObject()->getEntity();
+  if (count($products) >= 5 && $form_state->getValue('field_product_day')['value'] && !in_array($node->id(), $products)) {
     $message = '';
     foreach($products as $id) {
       $message .= "<a href='/node/{$id}/edit'>node ID: {$id}</a><br>";
